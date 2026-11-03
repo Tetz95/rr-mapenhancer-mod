@@ -117,9 +117,11 @@ namespace MapEnhancer.UMM
             bool ctrl = Input.GetKey(KeyCode.LeftControl) || Input.GetKey(KeyCode.RightControl);
             bool alt = Input.GetKey(KeyCode.LeftAlt) || Input.GetKey(KeyCode.RightAlt);
 
-            if ((modifiers & 1) != 0 && !shift) return false;
-            if ((modifiers & 2) != 0 && !ctrl) return false;
-            if ((modifiers & 4) != 0 && !alt) return false;
+            // The modifiers must match exactly: a binding without Shift doesn't fire while Shift is held, so Z (map)
+            // doesn't also catch Shift+Z (follow) or Ctrl+Z (recenter).
+            if (((modifiers & 1) != 0) != shift) return false;
+            if (((modifiers & 2) != 0) != ctrl) return false;
+            if (((modifiers & 4) != 0) != alt) return false;
             return true;
         }
 

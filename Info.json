@@ -1,6 +1,6 @@
 {
-  "identifier": "vanguard/map-enhancer",
-  "name": "Map Enhancer",
+  "identifier": "reaper/map-enhancer",
+  "name": "Map Enhancer (Tetz fork)",
   "version": "2.0.15",
   "author": "Vanguard, Reaper8f",
   "license": "MIT",
